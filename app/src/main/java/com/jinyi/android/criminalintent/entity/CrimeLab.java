@@ -1,4 +1,4 @@
-package com.jinyi.android.criminalintent;
+package com.jinyi.android.criminalintent.entity;
 
 import android.content.Context;
 
@@ -17,12 +17,12 @@ public class CrimeLab {
     private CrimeLab(Context appContext){
         mAppContext = appContext;
         mCrimes = new ArrayList<Crime>();
-        for (int i = 0; i < 100; i++) {
+       /* for (int i = 0; i < 100; i++) {
             Crime c = new Crime();
             c.setmTitle("Crime #" + i);
             c.setmSolved(i % 2 == 0);
             mCrimes.add(c);
-        }
+        }*/
     }
 
     public static CrimeLab get(Context c){
@@ -44,4 +44,13 @@ public class CrimeLab {
         }
         return null;
     }
+
+    public void addCrime(Crime c){
+        mCrimes.add(c);
+    }
+
+    public void deleteCrime(Crime c){
+        mCrimes.remove(c);
+    }
+
 }

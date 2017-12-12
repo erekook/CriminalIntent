@@ -1,4 +1,4 @@
-package com.jinyi.android.criminalintent;
+package com.jinyi.android.criminalintent.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +12,10 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import com.jinyi.android.criminalintent.entity.Crime;
+import com.jinyi.android.criminalintent.entity.CrimeLab;
+import com.jinyi.android.criminalintent.R;
+
 import java.util.UUID;
 
 public class CrimeFragment extends Fragment {
@@ -23,11 +27,22 @@ public class CrimeFragment extends Fragment {
     private Button mDateButton;
     private CheckBox mSolvedCheckBox;
 
+    public static CrimeFragment newInstance(UUID crimeId){
+        Bundle args = new Bundle();
+        args.putSerializable(EXTRA_CRIME_ID,crimeId);
+
+        CrimeFragment fragment = new CrimeFragment();
+        fragment.setArguments(args);
+
+        return fragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID crimeId = (UUID) getActivity().getIntent()
-                .getSerializableExtra(EXTRA_CRIME_ID);
+        /*UUID crimeId = (UUID) getActivity().getIntent()
+                .getSerializableExtra(EXTRA_CRIME_ID);*/
+        UUID crimeId = (UUID) getArguments().getSerializable(EXTRA_CRIME_ID);
 
         mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
     }

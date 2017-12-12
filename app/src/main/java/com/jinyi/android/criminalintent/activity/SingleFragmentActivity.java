@@ -1,10 +1,12 @@
-package com.jinyi.android.criminalintent;
+package com.jinyi.android.criminalintent.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+
+import com.jinyi.android.criminalintent.R;
 
 /**
  * Created by long on 2017/12/8.

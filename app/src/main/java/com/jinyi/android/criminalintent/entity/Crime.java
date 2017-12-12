@@ -1,5 +1,7 @@
-package com.jinyi.android.criminalintent;
+package com.jinyi.android.criminalintent.entity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -8,10 +10,13 @@ import java.util.UUID;
  */
 
 public class Crime {
+    public static DateFormat df = new SimpleDateFormat("yyyy-dd-MM hh:mm:ss");
+
     private UUID mId;
     private String mTitle;
     private Date mDate;
     private boolean mSolved;
+
 
     public Crime(){
         //生成唯一标识符
@@ -50,5 +55,9 @@ public class Crime {
     @Override
     public String toString() {
         return mTitle;
+    }
+
+    public static String formatDate(Date date){
+        return df.format(date);
     }
 }

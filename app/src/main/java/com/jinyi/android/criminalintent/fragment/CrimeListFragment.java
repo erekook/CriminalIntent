@@ -1,4 +1,4 @@
-package com.jinyi.android.criminalintent;
+package com.jinyi.android.criminalintent.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,11 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
+
+import com.jinyi.android.criminalintent.entity.Crime;
+import com.jinyi.android.criminalintent.entity.CrimeLab;
+import com.jinyi.android.criminalintent.R;
+import com.jinyi.android.criminalintent.activity.CrimeActivity;
 
 import java.util.ArrayList;
 
@@ -46,6 +51,12 @@ public class CrimeListFragment extends ListFragment {
         Intent i = new Intent(getActivity(),CrimeActivity.class);
         i.putExtra(CrimeFragment.EXTRA_CRIME_ID,c.getmId());
         startActivity(i);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
     }
 
     private class CrimeAdapter extends ArrayAdapter<Crime>{
